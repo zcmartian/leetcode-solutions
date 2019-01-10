@@ -52,9 +52,8 @@ class Solution {
                 queue[k++] = A[i];
             }
         }
-        int offset = length - k;
         for (int i = 0; i < k; i++) {
-            ret[offset + i] = queue[i];
+            ret[j + i] = queue[i];
         }
         return ret;
     }
