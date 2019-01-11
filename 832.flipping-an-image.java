@@ -73,11 +73,6 @@ class Solution {
     }
     
     int invert(int value) {
-        if (value == 0) {
-            return 1;
-        } else if (value == 1) {
-            return 0;
-        }
-        return value;
+        return value^1;
     }
 }
