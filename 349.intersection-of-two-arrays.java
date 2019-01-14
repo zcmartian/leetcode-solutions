@@ -52,7 +52,7 @@ class Solution {
         }
         int[] ret = new int[set2.size()];
         int i = 0;
-        for (Integer value : set1) {
+        for (Integer value : set2) {
             ret[i++] = value;
         }
         return ret;
