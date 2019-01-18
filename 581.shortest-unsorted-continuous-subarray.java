@@ -35,31 +35,12 @@
  */
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
-        if (nums == null || nums.length<2) 
-            return 0;
+        int[] nums_sorted = Arrays.copyOf(nums, nums.length);
+        Arrays.sort(nums_sorted);
 
-        int[] index = new int[nums.length-1];
-        for (int i=0;i<nums.length-1;i++) {
-            index[i] = -1;
-        }
-        int k = 0;
-        boolean firstBlood = false;
-        for( int i = 0;i < nums.length - 1;i++) {
-            if (nums[i] > nums[i+1]) {
-                index[k++] = i;
-                firstBlood = true;
-            } else if (firstBlood && nums[i] == nums[i+1]) {
-                index[k++] = i;
-            }
-        }
-        int count = 0;
-        for(int i=0;i<nums.length-1;i++) {
-            if(index[i]!=-1) {
-                count++;
-            } else {
-                break;
-            }
-        }
-        return count == 0 ? 0 : index[count-1] - index[0] + 2;
+        int i=0,j=nums.length-1;
+        while(i<nums.length && nums[i]==nums_sorted[i]) i++;
+        while(i<j && nums[j]==nums_sorted[j])j--;
+        return j-i+1;
     }
 }
