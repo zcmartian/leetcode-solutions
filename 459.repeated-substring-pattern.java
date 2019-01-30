@@ -44,18 +44,19 @@
  * 
  */
 class Solution {
-    public boolean repeatedSubstringPattern(String s) {
-        Set<Character> letters = new HashSet<>();
-        int count = 0;
-        for(int i=0;i<s.length();i++){
-            if(letters.contains(s.charAt(i))){
-                letters.remove(s.charAt(i));
-                count--;
-            } else {
-                letters.add(s.charAt(i));
-                count++;
+    public boolean repeatedSubstringPattern(String str) {
+        int l = str.length();
+        for (int i = l / 2; i >= 1; i--) {
+            if (l % i == 0) {
+                int m = l / i;
+                String subS = str.substring(0, i);
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < m; j++) {
+                    sb.append(subS);
+                }
+                if (sb.toString().equals(str)) return true;
             }
         }
-        return count == 0;
+        return false;
     }
 }
