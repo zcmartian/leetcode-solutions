@@ -1,7 +1,8 @@
 #!/bin/bash
 tags="algorithms array hash-table linked-list math two-pointers string binary-search divide-and-conquer dynamic backtracking stack heap greedy sort bit-manipulation tree depth-first breadth-first union-find graph design topological-sort trie binary-indexed-tree segment-tree queue reservoir-sampling map"
 
-echo "tag    |    easy(total-done-todo)    |    medium    |    hard    |     total"
+echo "|tag|easy(total-done-todo)|medium|hard|total|"
+echo "|:---:|:---:|:---:|:---:|:---:|"
 a=`leetcode list -q L | wc -l`
 ad=`leetcode list -q dL | wc -l`
 aD=`leetcode list -q DL | wc -l`
@@ -14,7 +15,7 @@ amD=`leetcode list -q mDL | wc -l`
 ah=`leetcode list -q hL | wc -l`
 ahd=`leetcode list -q hdL | wc -l`
 ahD=`leetcode list -q hDL | wc -l`
-echo "TOTAL: ${ae}-${aed}-${aeD} | ${am}-${amd}-${amD} | ${ah}-${ahd}-${ahD} | ${a}-${ad}-${aD}"
+echo "|TOTAL|${ae}-${aed}-${aeD}|${am}-${amd}-${amD}|${ah}-${ahd}-${ahD}|${a}-${ad}-${aD}|"
 for tag in ${tags}; do
     t=`leetcode list -q L -t ${tag} | wc -l`
     td=`leetcode list -q dL -t ${tag} | wc -l`
@@ -28,5 +29,5 @@ for tag in ${tags}; do
     ht=`leetcode list -q hL -t ${tag} | wc -l`
     hd=`leetcode list -q hdL -t ${tag} | wc -l`
     hD=`leetcode list -q hDL -t ${tag} | wc -l`
-    echo "${tag}: ${et}-${ed}-${eD} | ${mt}-${md}-${mD} | ${ht}-${hd}-${hD} | ${t}-${td}-${tD}"
+    echo "|${tag}|${et}-${ed}-${eD}|${mt}-${md}-${mD}|${ht}-${hd}-${hD}|${t}-${td}-${tD}|"
 done
