@@ -1,5 +1,5 @@
 #!/bin/bash
-tags="algorithms array hash-table linked-list math two-pointers string binary-search divide-and-conquer dynamic backtracking stack heap greedy sort bit-manipulation tree depth-first breadth-first union-find graph design topological-sort trie binary-indexed-tree segment-tree queue reservoir-sampling map"
+tags="algorithms array dynamic tree string math hash-table depth-first binary-search two-pointers stack backtracking linked-list greedy bit-manipulation breadth-first divide-and-conquer heap sort trie design union-find graph topological-sort binary-indexed-tree segment-tree queue reservoir-sampling map database shell"
 
 echo "|tag|easy(total-done-todo)|medium|hard|total|"
 echo "|:---:|:---:|:---:|:---:|:---:|"
