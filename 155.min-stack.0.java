@@ -43,6 +43,11 @@
  * 
  * 
  */
+
+/*
+ * 当新的值小于当前最小值时,先压入当前最小值,再然如新值;这样每次有新的最小值进来的时候,
+ * 它下一个元素就是次小值,也就是新的最小值.
+ */
 class MinStack {
     private int min = Integer.MAX_VALUE;
     private Stack<Integer> stack = new Stack<>();
