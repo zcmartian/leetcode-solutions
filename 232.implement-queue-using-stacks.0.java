@@ -44,6 +44,12 @@
  * 
  * 
  */
+
+/*
+ * a中只入栈,b中只出栈
+ * 只要出栈一次,a中的元素就全部逆序进入了b
+ * 之后,a继续入栈,b也可以直接出栈,直到b为空,再从a逆序进入b
+ */
 class MyQueue {
     private Stack<Integer> a;
     private Stack<Integer> b;
