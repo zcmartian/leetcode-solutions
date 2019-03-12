@@ -28,34 +28,16 @@
  */
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, List<Integer>> map = new TreeMap<>();
+        Map<Integer,Integer> map = new HashMap<>();
         for(int i=0;i<nums.length;i++) {
-            if(map.containsKey(nums[i])) {
-                map.get(nums[i]).add(i);
-            } else {
-                List<Integer> indices = new ArrayList<>();
-                indices.add(i);
-                map.put(nums[i], indices);
+            map.put(nums[i], i);
+        }
+        for(int i=0;i<nums.length;i++) {
+            int complete = target - nums[i];
+            if(map.containsKey(complete) && map.get(complete) != i) {
+                return new int[] {i, map.get(complete)};
             }
         }
-        int[] ret = new int[2];
-        for(Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
-            int a = entry.getKey();
-            int b = target - a;
-            if(b == a){
-                if(map.containsKey(b)) {
-                    ret[0] = entry.getValue().get(0);
-                    ret[1] = entry.getValue().get(1);
-                    return ret;
-                }
-            } else {
-                if(map.containsKey(b)) {
-                    ret[0] = entry.getValue().get(0);
-                    ret[1] = map.get(b).get(0);
-                    return ret;
-                }
-            }
-        }
-        return ret;
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
