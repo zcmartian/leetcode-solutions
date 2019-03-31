@@ -45,7 +45,7 @@ class Solution {
 
             int mid = start + (end - start) / 2;
 
-            if(nums[mid] > nums[start]) {
+            if(nums[mid] >= nums[start]) {
                 start = mid + 1;
             } else {
                 end = mid;
