@@ -39,26 +39,20 @@
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> res = new ArrayList<Integer>();
-        if (root == null){
-            return res;
-        }
-        dfs (root, res, 0);
-        return res;
+        List<Integer> result = new ArrayList<Integer>();
+        rightView(root, result, 0);
+        return result;
     }
 
-    public void dfs (TreeNode root, List<Integer> res, int level){
-        if (root == null){
+    public void rightView(TreeNode curr, List<Integer> result, int currDepth){
+        if(curr == null){
             return;
         }
-        if (res.size() == level){
-            res.add (root.val);
+        if(currDepth == result.size()){
+            result.add(curr.val);
         }
-        if (root.right != null){
-            dfs (root.right, res, level + 1);
-        }
-        if (root.left != null){
-            dfs (root.left, res, level + 1);
-        }
+
+        rightView(curr.right, result, currDepth + 1);
+        rightView(curr.left, result, currDepth + 1);
     }
 }
