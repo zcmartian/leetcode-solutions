@@ -50,21 +50,21 @@
  */
 class Solution {
     public int thirdMax(int[] nums) {
-        Integer max1 = null, max2 = null, max3 = null;
+        Integer biggest = null, bigger = null, big = null;
         for(Integer value : nums) {
-            if(value.equals(max1) || value.equals(max2) || value.equals(max3))
+            if(value.equals(biggest) || value.equals(bigger) || value.equals(big))
                 continue;
-            if(max1 == null || value>max1){
-                max3 = max2;
-                max2 = max1;
-                max1 = value;
-            } else if(max2 == null || value>max2) {
-                max3 = max2;
-                max2 = value;
-            } else if(max3 == null || value>max3) {
-                max3 = value;
+            if(biggest == null || value>biggest){
+                big = bigger;
+                bigger = biggest;
+                biggest = value;
+            } else if(bigger == null || value>bigger) {
+                big = bigger;
+                bigger = value;
+            } else if(big == null || value>big) {
+                big = value;
             }
         }
-        return max3 == null?max1 : max3;
+        return big == null? biggest : big;
     }
 }
