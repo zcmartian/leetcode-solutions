@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=1012 lang=java
+ * @lc app=leetcode id=1009 lang=java
  *
- * [1012] Complement of Base 10 Integer
+ * [1009] Complement of Base 10 Integer
  *
  * https://leetcode.com/problems/complement-of-base-10-integer/description/
  *
