@@ -57,24 +57,15 @@ class Solution {
         while(!queue.isEmpty()) {
             int size = queue.size();
             List<Integer> level = new ArrayList<>();
-            Stack<TreeNode> stack = new Stack<>();
             for(int i=0;i<size;i++) {
                 TreeNode node = queue.poll();
-                level.add(node.val);
                 if(left2right) {
-                    if (node.left != null)
-                        stack.push(node.left);
-                    if (node.right != null)
-                        stack.push(node.right);
+                    level.add(node.val);
                 } else {
-                    if (node.right != null)
-                        stack.push(node.right);
-                    if (node.left != null)
-                        stack.push(node.left);
+                    level.add(0, node.val);
                 }
-            }
-            while(!stack.isEmpty()) {
-                queue.offer(stack.pop());
+                if(node.left!=null) queue.offer(node.left);
+                if(node.right!=null) queue.offer(node.right);
             }
             left2right = !left2right;
             ret.add(level);
