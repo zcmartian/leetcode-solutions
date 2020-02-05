@@ -25,18 +25,18 @@
  * Because nums[0] + nums[1] = 2 + 7 = 9,
  * return [0, 1].
  * 
+ * 
+ * 
+ * 
  */
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int i=0; i<nums.length;i++) {
-            map.put(nums[i], i);
-        }
+        Map<Integer, Integer> map = new HashMap<>();
         for(int i=0;i<nums.length;i++) {
-            int complete = target - nums[i];
-            if(map.containsKey(complete) && map.get(complete) != i) {
-                return new int[] {i, map.get(complete)};
-            }
+            if(map.containsKey(nums[i]))
+                return new int[] {map.get(nums[i]), i};
+            else
+                map.put(target-nums[i], i);
         }
         throw new IllegalArgumentException("No two sum solution");
     }

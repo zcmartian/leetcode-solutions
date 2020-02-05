@@ -6,9 +6,11 @@
 # https://leetcode.com/problems/two-sum/description/
 #
 # algorithms
-# Easy (39.98%)
-# Total Accepted:    1.4M
-# Total Submissions: 3.4M
+# Easy (45.04%)
+# Likes:    13348
+# Dislikes: 489
+# Total Accepted:    2.5M
+# Total Submissions: 5.6M
 # Testcase Example:  '[2,7,11,15]\n9'
 #
 # Given an array of integers, return indices of the two numbers such that they
@@ -26,9 +28,8 @@
 # return [0, 1].
 # 
 # 
-# 
-# 
 #
+
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -38,10 +39,10 @@ class Solution(object):
         """
         buff = {}
         if len(nums) <= 1:
-            return False
+            return false
 
         for i in range(len(nums)):
-            if nums[i] in buff:
-                return [buff[nums[i]],i]
+            if target - nums[i] in buff:
+                return [buff[target - nums[i]], i]
             else:
-                buff[target - nums[i]] = i
+                buff[nums[i]] = i
