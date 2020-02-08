@@ -86,41 +86,23 @@
 
 // @lc code=start
 class Solution {
-    public boolean isMatch(String s, String p) {
-        // corner case
-        if(s == null || p == null) return false;
+    public boolean isMatch(String text, String pattern) {
+        boolean[][] dp = new boolean[text.length() + 1][pattern.length() + 1];
+        dp[text.length()][pattern.length()] = true;
 
-        int m = s.length();
-        int n = p.length();
-
-        boolean[][] M = new boolean[m + 1][n + 1];
-
-		    dp[0][0] = true;
-
-        for(int j = 2; j < n + 1; j +=2){
-            if(p.charAt(j - 1) == '*' && dp[0][j - 2]){
-                dp[0][j] = true;
-            }
-        }
-
-        for(int i = 1; i < m + 1; i++){
-            for(int j = 1; j < n + 1; j++){
-                char curS = s.charAt(i - 1);
-                char curP = p.charAt(j - 1);
-                if(curS == curP || curP == '.'){
-                    dp[i][j] = dp[i - 1][j - 1];
-                }else if(curP == '*'){
-                    char preCurP = p.charAt(j - 2);
-                    if(preCurP != '.' && preCurP != curS){
-                        dp[i][j] = dp[i][j - 2];
-                    }else{
-                        dp[i][j] = (dp[i][j - 2] || dp[i - 1][j - 2] || dp[i - 1][j]);
-                    }
+        for (int i = text.length(); i >= 0; i--){
+            for (int j = pattern.length() - 1; j >= 0; j--){
+                boolean first_match = (i < text.length() &&
+                                       (pattern.charAt(j) == text.charAt(i) ||
+                                        pattern.charAt(j) == '.'));
+                if (j + 1 < pattern.length() && pattern.charAt(j+1) == '*'){
+                    dp[i][j] = dp[i][j+2] || first_match && dp[i+1][j];
+                } else {
+                    dp[i][j] = first_match && dp[i+1][j+1];
                 }
             }
         }
-
-        return dp[m][n];
+        return dp[0][0];
     }
 }
 // @lc code=end
